@@ -1,11 +1,9 @@
 const express = require('express');
-const { categoryController } = require('../../controllers/category.controller');
-const { productController } = require('../../controllers/product.controller');
+const todoRouter = require('./todos.routes');
 
-const v1Router = express.Router();
+const router = express.Router();
+
+router.use('/todos', todoRouter)
 
 
-v1Router.get('/products/:id', productController);
-v1Router.get('/categories/:id', categoryController);
-
-module.exports = v1Router;
+module.exports = router;
